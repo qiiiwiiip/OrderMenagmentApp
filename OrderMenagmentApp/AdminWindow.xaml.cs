@@ -31,5 +31,28 @@ namespace OrderMenagmentApp
             authorizationWindow.Show(); // Показываем новое окно авторизации
             Close(); // Закрываем текущее окно
         }
+        private void OrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            OrdersWindow ordersWindow = new OrdersWindow();
+            ordersWindow.Show();
+        }
+
+        private void ServicesButton_Click(object sender, RoutedEventArgs e)
+        {
+            ServicesWindow servicesWindow = new ServicesWindow();
+            servicesWindow.Show();
+        }
+
+        private void CustomersButton_Click(object sender, RoutedEventArgs e)
+        {
+            CustomersWindow customersWindow = new CustomersWindow();
+            customersWindow.Show();
+        }
+
+        private void EmployeesButton_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeesWindow employeesWindow = new EmployeesWindow();
+            employeesWindow.Show();
+        }
     }
 }
