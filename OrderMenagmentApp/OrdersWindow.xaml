@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrderMenagmentApp"
         mc:Ignorable="d"
-        Title="OrdersWindow" Height="450" Width="800">
+        Title="OrdersWindow" Height="700" Width="1000">
     <Grid>
-        
+        <DataGrid x:Name="dataGrid" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="350" Width="924">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="OrderID" Binding="{Binding OrderID}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="StartDate" Binding="{Binding StartDate}"/>
+                <DataGridTextColumn Header="EndDate" Binding="{Binding EndDate}"/>
+                <DataGridTextColumn Header="ClientID" Binding="{Binding ClientID}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Client" Binding="{Binding ClientLastName}"/>
+                <DataGridTextColumn Header="EmployeeID" Binding="{Binding EmployeeID}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Employee" Binding="{Binding EmployeeLastName}"/>
+                <DataGridTextColumn Header="ServiceID" Binding="{Binding ServiceID}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="ServiceName" Binding="{Binding ServiceName}"/>
+                <DataGridCheckBoxColumn Header="Done" Binding="{Binding Done}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Description:" HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="descriptionTextBox" HorizontalAlignment="Left" Margin="90,370,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Label Content="StartDate:" HorizontalAlignment="Left" Margin="250,370,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="startDateDatePicker" HorizontalAlignment="Left" Margin="330,370,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Label Content="EndDate:" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="endDateDatePicker" HorizontalAlignment="Left" Margin="90,400,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Label Content="Client:" HorizontalAlignment="Left" Margin="250,400,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="clientComboBox" HorizontalAlignment="Left" Margin="330,400,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Label Content="Employee:" HorizontalAlignment="Left" Margin="10,430,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="employeeComboBox" HorizontalAlignment="Left" Margin="90,430,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Label Content="Service:" HorizontalAlignment="Left" Margin="250,430,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="serviceComboBox" HorizontalAlignment="Left" Margin="330,430,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Button Content="Add" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" Width="75" Click="AddButton_Click"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="90,460,0,0" VerticalAlignment="Top" Width="75" Click="UpdateButton_Click"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="170,460,0,0" VerticalAlignment="Top" Width="75" Click="DeleteButton_Click"/>
     </Grid>
 </Window>

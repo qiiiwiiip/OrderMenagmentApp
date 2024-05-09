@@ -90,7 +90,7 @@ namespace OrderMenagmentApp
 
                 string query = $"INSERT INTO Employees (FirstName, LastName, Patronymic, PhoneNumber, Birthdate, JobTitleID) VALUES ('{firstName}', '{lastName}', '{patronymic}', '{phoneNumber}', '{birthdate}', '{jobTitleId}')";
                 
-                ExecuteNonQuery(query);
+                GetDataFromDatabase(query);
                 DisplayDataInGrid();
             }
 
@@ -109,7 +109,7 @@ namespace OrderMenagmentApp
                 int jobTitleId = (int)jobTitleComboBox.SelectedValue;
 
                 string query = $"UPDATE Employees SET FirstName='{firstName}', LastName='{lastName}', Patronymic='{patronymic}', PhoneNumber='{phoneNumber}', Birthdate='{birthdate}', JobTitleID={jobTitleId} WHERE EmployeeID={employeeId}";
-                ExecuteNonQuery(query);
+                GetDataFromDatabase(query);
                 DisplayDataInGrid();
             }
 
@@ -121,25 +121,10 @@ namespace OrderMenagmentApp
             {
                 int employeeId = (int)selectedRow["EmployeeID"];
                 string query = $"DELETE FROM Employees WHERE EmployeeID={employeeId}";
-                ExecuteNonQuery(query);
+                GetDataFromDatabase(query);
                 DisplayDataInGrid();
             }
         }
-        private void ExecuteNonQuery(string query)
-        {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-        }
+
     }
 }

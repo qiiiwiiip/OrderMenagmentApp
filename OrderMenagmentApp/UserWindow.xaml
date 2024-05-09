@@ -5,10 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrderMenagmentApp"
         mc:Ignorable="d"
-        Title="UserWindow" Height="450" Width="800">
+        Title="UserWindow" Height="700" Width="1000">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="311,196,0,0" TextWrapping="Wrap" Text="я узер" VerticalAlignment="Top" Width="120"/>
         <Button Content="Logout" Click="LogoutButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0"/>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="364" Width="560" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="OrderID" Binding="{Binding OrderID}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="StartDate" Binding="{Binding StartDate}"/>
+                <DataGridTextColumn Header="EndDate" Binding="{Binding EndDate}"/>
+                <DataGridCheckBoxColumn Header="Done" Binding="{Binding Done}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
+        <Label Content="EndDate:" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="endDateDatePicker" HorizontalAlignment="Left" Margin="90,400,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Button Content="Update" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" Width="75" Click="UpdateButton_Click"/>
     </Grid>
 </Window>

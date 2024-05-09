@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrderMenagmentApp"
         mc:Ignorable="d"
-        Title="ServicesWindow" Height="450" Width="800">
+        Title="Services" Height="500" Width="600">
     <Grid>
-        
+        <DataGrid x:Name="dataGrid" SelectionChanged="DataGrid_SelectionChanged" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,10,120" VerticalAlignment="Top" Height="350" Width="560">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ServiceID" Binding="{Binding ServiceID}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="MaterialID" Binding="{Binding MaterialID}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Material" Binding="{Binding MaterialName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="10,370,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Margin="90,370,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Label Content="Price:" HorizontalAlignment="Left" Margin="250,370,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="priceTextBox" HorizontalAlignment="Left" Margin="330,370,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Label Content="Material:" HorizontalAlignment="Left" Margin="250,400,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="materialComboBox" HorizontalAlignment="Left" Margin="330,400,0,0" VerticalAlignment="Top" Width="150"/>
+
+        <Button Content="Add" HorizontalAlignment="Left" Margin="10,430,0,0" VerticalAlignment="Top" Width="75" Click="AddButton_Click"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="90,430,0,0" VerticalAlignment="Top" Width="75" Click="UpdateButton_Click"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="170,430,0,0" VerticalAlignment="Top" Width="75" Click="DeleteButton_Click"/>
     </Grid>
 </Window>
